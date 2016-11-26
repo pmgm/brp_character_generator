@@ -1,6 +1,6 @@
 from improvement import Improvement
 from genre import Genre
-class BrpFantasy(Genre):
+class GenreBrpFantasy(Genre):
     """
     Incorporate the BRP Fantasy professions and races, as a demonstration. Incorporates the information from brp_professions_fantasy and brp_races_fantasy.
     """
