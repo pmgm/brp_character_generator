@@ -24,37 +24,37 @@
             text:'Quit'
             on_press: exit()
 
-<SelectSystem>:
-    GridLayout:
-        cols: 2
-        Label:
-            text:'Basic Roleplaying (BGB)'
-        CheckBox:
-            group: 'system_group'
-            on_active: root.brp_system(*args)
-        Label:
-            text:'Magic World'
-        CheckBox:
-            group: 'system_group'
-            on_active: root.mw_system(*args)
-        Label:
-            text:'Mythras Imperative'
-        CheckBox:
-            group: 'system_group'
-            on_active: root.mi_system(*args)
-        Label:
-            text:'Call of Cthulhu'
-        CheckBox:
-            group: 'system_group'
-            on_active: root.coc_system(*args)
-        Button:
-            text:'Welcome Screen <= Back'
-            on_press: 
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'welcome'
-        Button:
-            text:'Next => Select Genre'
-            on_press: root.manager.current = 'genre'
+# <SelectSystem>:
+#     GridLayout:
+#         cols: 2
+#         Label:
+#             text:'Basic Roleplaying (BGB)'
+#         CheckBox:
+#             group: 'system_group'
+#             on_active: root.brp_system(*args)
+#         Label:
+#             text:'Magic World'
+#         CheckBox:
+#             group: 'system_group'
+#             on_active: root.mw_system(*args)
+#         Label:
+#             text:'Mythras Imperative'
+#         CheckBox:
+#             group: 'system_group'
+#             on_active: root.mi_system(*args)
+#         Label:
+#             text:'Call of Cthulhu'
+#         CheckBox:
+#             group: 'system_group'
+#             on_active: root.coc_system(*args)
+#         Button:
+#             text:'Welcome Screen <= Back'
+#             on_press: 
+#                 root.manager.transition.direction = 'right'
+#                 root.manager.current = 'welcome'
+#         Button:
+#             text:'Next => Select Genre'
+#             on_press: root.manager.current = 'genre'
 
 <SelectGenre>:
     GridLayout:

@@ -20,6 +20,7 @@ class GameSystem():
                 self.suppressed_stats = []
                 self.bonuses = {}
                 self.skill_points = 0
+                self.name = ""
 
         def calculateStats(self, statslist):
                 """modify STATS if they exist in the statblock eg. statslist {'STR':'2d6', 'EDU':'2d8'}"""
@@ -112,6 +113,7 @@ class MythrasImperative(GameSystem):
                 self.suppressed_skills = []
                 self.modified_skills = {}
                 self.improvements = []
+                self.name = "Mythras Imperative"
                 
         def calculateStats(self, statslist):
                 """ assign stats as parent, then recalculate other things """
@@ -385,6 +387,7 @@ class Brp(GameSystem):
                 self.skills = {}
                 self.modified_skills = {}
                 self.suppressed_skills = []
+                self.name = "Basic Roleplaying"
 
         def calculateStats(self, statslist):
                 """ assign stats as parent, then recalculate other things """
@@ -590,6 +593,7 @@ class MagicWorld(GameSystem):
                 self.improvements = []
                 self.modified_skills = {}
                 self.suppressed_skills = []
+                self.name = "Magic World"
                 
         def calculateStats(self, statslist):
                 """ assign stats as parent, then recalculate other things """
