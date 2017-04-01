@@ -67,8 +67,34 @@ class SelectSystem(Screen):
     """
     game = StringProperty()
     ruleset = StringProperty()
-    def assign_game_system(self, game, *args):
-        sm.get_screen("character_sheet").game_system = game
+    def __init__(self, **kwargs):
+        super(SelectSystem, self).__init__(**kwargs)
+        system_layout=GridLayout(cols=2)
+
+        games_available = [cls() for cls in GameSystem.__subclasses__()]
+        for idx, game_system in enumerate(games_available):
+            system_layout.add_widget(Label(text=game_system.name))
+            system_layout.add_widget(CheckBox(group='system_group', on_active=self.assign_game_system))
+        back_button = Button(text='Welcome Screen <= Back')
+        back_button.bind(on_press=self.back)
+        next_button = Button(text='Next => Pick Genre', on_press=self.next)
+        system_layout.add_widget(back_button)
+        system_layout.add_widget(next_button)
+        self.add_widget(system_layout)
+        
+    def assign_game_system(self, *args):
+        print(args[0])
+        game = args[0]
+        self.manager.get_screen("character_sheet").game_system=game
+        #self.manager.get_screen("character_sheet").game_system = game
+        #sm.get_screen("character_sheet").game_system = game
+
+    def back(self, *args):
+        self.manager.transition.direction = 'right'
+        self.manager.current = 'welcome'
+    def next(self, *args):
+        self.manager.transition.direction = 'left'
+        self.manager.current = 'genre'
         
 #    def brp_system(self,*args):
 #        game = 'Basic Roleplaying'
@@ -971,14 +997,17 @@ class CharacterSaveAsPDF(Screen):
 
 sm = ScreenManager()
 sm.add_widget(WelcomeScreen(name='welcome'))
+sm.add_widget(CharacterSheet(name='character_sheet'))
 sm.add_widget(SelectSystem(name='system_type'))
-system_layout=GridLayout(cols=2)
+#system_layout=GridLayout(cols=2)
+# 
+#games_available = [cls() for cls in GameSystem.__subclasses__()]
+#for idx, game_system in enumerate(games_available):
+#    system_layout.add_widget(Label(text=game_system.name))
+#    system_layout.add_widget(CheckBox(group='system_group'))
 #system_layout.add_widget(Button(text='Welcome Screen <= Back'))
-games_available = [cls() for cls in GameSystem.__subclasses__()]
-for idx, game_system in enumerate(games_available):
-    system_layout.add_widget(Label(text=game_system.name))
-    system_layout.add_widget(CheckBox(group='system_group'))
-sm.get_screen('system_type').add_widget(system_layout)
+#system_layout.add_widget(Button(text='Next => Pick Genre'))
+#sm.get_screen('system_type').add_widget(system_layout)
 
                           
 
@@ -993,7 +1022,7 @@ sm.add_widget(SelectGenre(name='genre'))
 # sm.add_widget(SelectProfessionCyberpunk(name='profession_cyberpunk'))
 # sm.add_widget(SelectProfessionWildWest(name='profession_wildwest'))
 # sm.add_widget(SelectProfessionHorror(name='profession_horror'))
-sm.add_widget(CharacterSheet(name='character_sheet'))
+
 sm.add_widget(CharacterSaveAsPDF(name='character_save_as_pdf'))
 
 class GuiBrp(App):
