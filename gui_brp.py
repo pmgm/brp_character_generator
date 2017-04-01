@@ -787,6 +787,10 @@ class CharacterSheet(Screen):
     skills = StringProperty()
 
     game_system = ""
+
+    def set_game_system(self, game):
+        """sets a GameSystem object for the character sheet"""
+        self.game_system = game
     
     def print_stats(self,mystats):
         stat_string = ''
