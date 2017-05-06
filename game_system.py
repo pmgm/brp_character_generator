@@ -96,11 +96,11 @@ from mi_professions import *
 class MythrasImperative(GameSystem):
         def __init__(self, power_level='Normal'):
                 """constructor for Mythras character"""
-                power_levels = {
+                self.all_power_levels = {
                         'Normal' : { 'culture' : 100, 'career' : 100, 'bonus' : 150 }
                 }
                 self.name = "Mythras Imperative"
-                self.power_level = power_levels.get( power_level, 'Normal')
+                self.power_level = self.all_power_levels.get( power_level, 'Normal')
                 self.statblock = {
                         'STR':0,
                         'CON':0,
@@ -363,14 +363,14 @@ class MythrasImperative(GameSystem):
 class Brp(GameSystem):
         def __init__(self, power_level='Normal'):
                 """constructor for BRP character"""
-                power_levels = {
+                self.all_power_levels = {
                         'Normal' : { 'points' : 250, 'EDU' : 20, 'max' : 75 },
                         'Heroic' : { 'points' : 325, 'EDU' : 25, 'max' : 90 },
                         'Epic' : { 'points' : 400, 'EDU' : 30, 'max' : 101 },
                         'Superhuman' : { 'points': 500, 'EDU' : 40, 'max': 9999}
                 }
                 self.name = "Basic Roleplaying"
-                self.power_level = power_levels.get( power_level, 'Normal')
+                self.power_level = self.all_power_levels.get( power_level, 'Normal')
                 self.statblock = {
                         'STR':0,
                         'CON':0,
@@ -570,14 +570,14 @@ class MagicWorld(GameSystem):
                 """constructor for Magic World character"""
                 # power levels 'POW' is the amount added to POW;
                 # 'stats' are points added to non-POW stats (probably also not SIZ)
-                power_levels = {
+                self.all_power_levels = {
                         'Normal' : {'profession' : [(1,60), (3,40), (4,20)], 'other' : [(1,40), (3,20)], 'POW' :0, 'stats' : 0, 'spells' : 3},
                         'Veteran' : {'profession' : [(2,60), (3,40), (3,20)], 'other' : [(3,40), (6,20)], 'POW' : 1, 'stats': 1, 'spells' : 6},
                         'Heroic' : {'profession' : [(1,80), (2,60), (2,40), (3,20)], 'other' : [(4,40), (6,20)], 'POW' : 2, 'stats' : 2, 'spells' : 9},
                         'Legendary' : {'profession' : [(2,80), (3,60), (3,40)], 'other' : [(5,40), (8,20)], 'POW' : 3, 'stats' : 4, 'spells' : 12}
                 }
                 self.name = "Magic World"
-                self.power_level = power_levels.get(power_level, 'Normal')
+                self.power_level = self.all_power_levels.get(power_level, 'Normal')
                 self.statblock = {
                         'STR' : 0,
                         'CON' : 0,
