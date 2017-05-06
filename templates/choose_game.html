@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Welcome to the generic BRP character generator. Please choose your game system.</p>
+(list game systems)
+(list power levels if appropriate)
+<ul>
+{% for game in systems %}
+<li>{{ game['name'] }}</li>
+{% endfor %}
+</ul>
+SUBMIT button to go to next screen
+{% endblock %}
+
