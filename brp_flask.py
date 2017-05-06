@@ -10,7 +10,6 @@ app = Flask(__name__)
 @app.route("/")
 def choose_game():
     games_available = [cls() for cls in GameSystem.__subclasses__()]
-    #for idx, game_system in enumerate(games_available):
     return render_template(
     'choose_game.html',
     title="Choose game system",
