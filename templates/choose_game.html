@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <p>Welcome to the generic BRP character generator. Please choose your game.</p>
-<ul>
-{% for game in systems %}
-<li>{{ game['name'] }}</li>
-{% endfor %}
-</ul>
-SUBMIT button to go to next screen
+<form method="GET">
+  {% for game in systems %}
+  <input id="{{ game_class[game.name] }}" type="radio" name="gamesystem" value="{{ game_class[game.name] }}" /><label for="{{ game_class[game.name] }}">{{ game['name'] }}</label>
+  {% endfor %}
+  <p><input type="submit" /></p>
+</form>
 {% endblock %}
 
