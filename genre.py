@@ -12,7 +12,7 @@ The parent class should probably not be instantiated; subclass for each specific
     """
     def __init__(self):
         self.name = 'Default'
-        self.game = 'Brp'
+        self.game = 'None'
         self.supressed_skills = []
         self.adjusted_skills = {} # "skill_name" : "base_score"
         # list of profession names can make screens 
