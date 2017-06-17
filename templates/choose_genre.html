@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>Welcome to the generic BRP character generator. Please choose your game.</p>
-<form method="POST" action="{{ url_for('choose_genre')}}">
+<p>Now pick your genre{% if system %} for {{ system }}{% endif %}.</p>
+
+{#
+<form method="POST" action="/genre">
   {% for game in systems %}
   <input id="{{ game_class[game.name] }}" type="radio" name="gamesystem" value="{{ game_class[game.name] }}" /><label for="{{ game_class[game.name] }}">{{ game['name'] }}</label>
   {% endfor %}
   <p><input type="submit" /></p>
 </form>
+#}
 {% endblock %}
 
